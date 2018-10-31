@@ -36,9 +36,9 @@
 	<header>
 		<nav class="topnav" id="myTopnav">
   			<a href="index.php"><img id="headerImg" src="images/RA_Art-Fund-logo_news-story.jpg" alt="home button" /></a>
-			<a href="#">Visitor Info</a>
-  			<a href="#">Find Us</a>
-  			<a href="#">Floorplan</a>
+			<a id="visitorInfoBtn">Visitor Info</a>
+  			<a id="findUsBtn">Find Us</a>
+  			<a id="floorplanBtn">Floorplan</a>
   			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     			<i class="fa fa-bars"></i>
   			</a>
@@ -144,11 +144,67 @@
 				</div>
 			</form>
 		</div>
+        <!-- Visitor Info -->
+        <div id="visitorInfo" class="modal">
+            <!-- content -->
+            <div class="modal-content">
+                <span class="close closeVisitorInfo">&times;</span>
+                <IMG src="images/RA-Summer-Exhibition-2018-550.jpg" style="margin-left: auto; margin-right: auto;" />
+                <h1 style="text-align: center; padding-top: 20px;">Visitor Information</h1>
+                <h3>Address:</h3>
+                <p>Burlington House, Piccadilly, London W1J 0BD</p>
+                <p>6 Burlington Gardens, London W1S 3ET</p>
+                <h3>Opening Hours:</h3>
+                <p>Daily 10am-6pm</p>
+                <p>Friday 10am-10pm</p>
+                <h3>Admission Fees:</h3>
+                <p>Adults £20.00</p>
+                <p>Children £7.50</p>
+            </div>
+        </div>
+        <!-- Find Us -->
+        <div id="findUs" class="modal">
+            <!-- content -->
+            <div class="modal-content">
+                <span class="close closeFindUs">&times;</span>
+                <h1 style="text-align: center; padding-bottom: 20px;">Find Us</h1>
+                <div class="google-maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.2056732684005!2d-0.14205728506362827!3d51.50944257963544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d66d119133%3A0xf9136ba8e70e4316!2sRoyal+Academy+of+Arts!5e0!3m2!1sen!2sau!4v1540968307021" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <h3 style=" padding-top: 20px;">Address:</h3>
+                <p>Burlington House, Piccadilly, London W1J 0BD</p>
+                <p>6 Burlington Gardens, London W1S 3ET</p>
+                <h3>Getting Here:</h3>
+                <h3>By Bus:</h3>
+                <p>Our nearest bus stops are served by several routes…</p>
+                <p>12, 88, 94, 453, N3 or N15</p>
+                <p>Get off at Regent Street / St. James’s –</p>
+                <p>stop Y.  6,14, 19, 38, N19, N38 or N97</p>
+                <p> Get off at ‘Old Bond Street (Royal Academy)’ – stop L.</p>
+                <h3>By tube</h3>
+                <p>Our nearest stations are…</p>
+                <p>Piccadilly Circus</p>
+                <p>Green Park</p>
+                <p>Oxford Circus</p>
+                <p>Bond Street</p>
+            </div>
+        </div>
+        <!-- Floorplan -->
+        <div id="floorplan" class="modal">
+            <!-- content -->
+            <div class="modal-content">
+                <span class="close closefloorplan">&times;</span>
+                <h1 style="text-align: center; padding-bottom: 20px;">Explore the Royal Academy of Arts</h1>
+                <div class="google-maps">
+                    <iframe src="https://map.royalacademy.org.uk/?zoom=14.047497457067173&lon=-0.1399236665142264&lat=51.50951187235754&overlay=&interest=&interestTypes=&floor=2&gid=&location=true&controls=true&popups=true&newwindow=true&menu=true&search=true&topbar=true&showtopbar=true&interestmenu=true&screenType=#" width="600" height="600" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+        </div>
 	</main>
 	<footer id="footer">
-        <a href="https://twitter.com/RL_Genius" class="fa fa-twitter-square w3-left-align"></a>
-        <a href="https://www.instagram.com/rocklegendgenius" class="fa fa-instagram w3-left-align"></a>
-        <a href="https://www.facebook.com/TeamCrankyPanda/" class="fa fa-facebook-official w3-left-align"></a>
+        <a target="_blank" href="https://twitter.com/royalacademy" class="fa fa-twitter-square w3-left-align"></a>
+        <a target="_blank" href="https://www.instagram.com/royalacademyarts/" class="fa fa-instagram w3-left-align"></a>
+        <a target="_blank" href="https://www.facebook.com/royalacademy" class="fa fa-facebook-official w3-left-align"></a>
         <a href="admin-home.php" class="fa fa-lock pull-right"></a>
 	</footer>
 	
@@ -161,6 +217,84 @@
        		x.className = "topnav";
    		}
 	}
+
+    // Get the visitor modal
+    var visitormodal = document.getElementById('visitorInfo');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("visitorInfoBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closeVisitorInfo")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        visitormodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        visitormodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == visitormodal) {
+            visitormodal.style.display = "none";
+        }
+    }
+
+    // Get the find us modal
+    var findusmodal = document.getElementById('findUs');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("findUsBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closeFindUs")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        findusmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        findusmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == findusmodal) {
+            findusmodal.style.display = "none";
+        }
+    }
+
+    // Get the floorplan modal
+    var floorplanmodal = document.getElementById('floorplan');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("floorplanBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closefloorplan")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        floorplanmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        floorplanmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == floorplanmodal) {
+            floorplanmodal.style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>
